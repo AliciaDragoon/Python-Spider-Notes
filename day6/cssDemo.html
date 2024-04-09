@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    /* css选择器，选择页面上的标签，并添加对应的样式.爬虫拿到源代码后，可检索并通过特定标签提取数据 */
+    /* id选择器:根据id的值来选择页面元素，id唯一，class不唯一 */
+    #alpha {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+    }
+    /* 标签选择器:根据标签的名字来选择页面上的元素节点 */
+    span{
+        color:blue
+    }
+    /* 类选择器:根据class的值选择页面的标签，用于批量给标签添加样式*/
+    .delta {
+        background: yellow;
+    }
+    /* 后代选择器:先找外层选择器的标签，再在之中找标签 */
+    div p{
+        color: red;
+    }
+    /* 子选择器:先找外层选择器的标签，再在之中找标签,只找一层 */
+    div > li {
+        color: aqua;
+    }
+    /* 属性选择器: */
+    ul[class="需要的属性值"]{
+        color: coral;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div>样式1</div>
+    <div style="width:100px;height:100px;background:pink">样式2</div>
+    <div id= "alpha">样式3</div>
+    <div id= "beta">样式4</div>
+    <div id = "gamma"><p><span>样式5</span></p> </div>
+    <span>样式6</span>
+    <span class="delta">样式7</span>
+    <p class="delta">样式8</p>
+    <div><p>样式9</p></div>
+    <div>
+        <ul><li>样式10</li></ul>
+        <li>样式11</li>
+    </div>
+    <div>
+        <ul class="需要的属性值">需要的元素1</ul>
+        <ul>不需要的元素1</ul>
+        <ul class="需要的属性值">需要的元素2</ul>
+        <ul>不需要的元素2</ul>
+    </div>
+</body>
+</html>

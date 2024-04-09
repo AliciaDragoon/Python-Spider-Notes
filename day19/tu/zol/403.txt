@@ -1,0 +1,2 @@
+2024-04-03 00:57:15 [scrapy.pipelines.files] WARNING: File (code: 403): Error downloading file from <GET https://desk-fd.zol-img.com.cn/t_s1366x768c5/g5/M00/0B/0B/ChMkJ13TrJaIH90mAAJm80nuJxIAAvUIgHgm_QAAmcL378.jpg> referred in <None>
+[(False, <twisted.python.failure.Failure scrapy.pipelines.files.FileException: download-error>)]
