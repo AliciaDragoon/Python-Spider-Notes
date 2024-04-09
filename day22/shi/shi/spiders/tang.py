@@ -17,9 +17,9 @@ class TangSpider(CrawlSpider):
         Rule(lk1, callback="parse_item"),
         Rule(lk2, follow=True),
         # follow=True表示重新来一遍
-        # Rule(lk1, callback="parse_item", follow=True),
     )
 
+    # 提取唐诗的标题
     def parse_item(self, response, **kwargs):
         title = response.xpath("//h1[@class='mp3']/text()").extract_first()
         print(title)
