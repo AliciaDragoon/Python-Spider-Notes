@@ -4,7 +4,7 @@ from scrapy import signals
 from redis import Redis
 
 
-# 增量式爬虫
+# 增量式爬虫（利用redis去除重复的url和内容）
 class TySpider(scrapy.Spider):
     name = "ty"
     allowed_domains = ["tianya.cn"]
@@ -66,3 +66,4 @@ class TySpider(scrapy.Spider):
         txt = txt.strip()
         # print(txt)
         self.coon.sadd("ty:urls", href)
+        yield {"content": txt}
