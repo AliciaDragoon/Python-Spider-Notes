@@ -21,6 +21,7 @@ sanic-cors = "*"
 setuptools = "*"
 scrapy = "*"
 pillow = "*"
+scrapy-redis = "*"
 
 [dev-packages]
 
