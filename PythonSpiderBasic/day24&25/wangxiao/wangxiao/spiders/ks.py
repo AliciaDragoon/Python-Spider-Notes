@@ -136,6 +136,8 @@ class KsSpider(scrapy.Spider):
     def parse_questions(self, resp, **kwargs):
         file_path = resp.meta['file_path']
         file_name = resp.meta['file_name']
+        file_name = file_name.replace("\t", "").replace("\n", "")
+        file_path = file_path.replace("\t", "").replace("\n", "")
         # print(type(resp))
         dic = resp.json()
         # print(type(dic))
