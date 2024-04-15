@@ -41,7 +41,7 @@ COOKIES_ENABLED = False
 DEFAULT_REQUEST_HEADERS = {
    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
    "Accept-Language": "en",
-    "Cookie":"agentmembers=wx; mantis6894=15d77bbd92eb44c8a4c6fad2e5ab0400@6894; safedog-flow-item=; UserCookieName=pc_586480502; OldUsername2=fViTdjnFXL7VdIFv48JLkg%3D%3D; OldUsername=fViTdjnFXL7VdIFv48JLkg%3D%3D; UserCookieName_=pc_586480502; OldUsername2_=fViTdjnFXL7VdIFv48JLkg%3D%3D; OldUsername_=fViTdjnFXL7VdIFv48JLkg%3D%3D; pc_586480502_exam=jz1; register-sign=jz1; sign=; userInfo=%7B%22userName%22%3A%22pc_586480502%22%2C%22token%22%3A%22d7616c3c-6d84-4c4c-8740-841608a53e6f%22%2C%22headImg%22%3Anull%2C%22nickName%22%3A%22185****6121%22%2C%22sign%22%3A%22fangchan%22%2C%22isBindingMobile%22%3A%221%22%2C%22isSubPa%22%3A%220%22%2C%22userNameCookies%22%3A%22fViTdjnFXL7VdIFv48JLkg%3D%3D%22%2C%22passwordCookies%22%3A%22Zjaf4MyWoxw%3D%22%7D; token=d7616c3c-6d84-4c4c-8740-841608a53e6f; OldPassword=Zjaf4MyWoxw%3D; OldPassword_=Zjaf4MyWoxw%3D"
+    "Cookie":"your_cookies"
 }
 
 # Enable or disable spider middlewares
