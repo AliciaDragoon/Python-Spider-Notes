@@ -39,71 +39,137 @@
     <!--        console.log(a == b);-->
     <!--        console.log(typeof a, typeof b);-->
     <!--    </script>-->
+    <!--    <script>-->
+    <!--        // 数据类型转换-->
+    <!--        // var s = "1";-->
+    <!--        // console.log(s + 1);-->
+    <!--        // // 11, 有一个是string，就是拼接-->
+    <!--        // s = parseInt(s);-->
+    <!--        // console.log(s + 1);-->
+    <!--        // // 2-->
+    <!--        // s = "abc";-->
+    <!--        // ss = parseInt(s, 16);-->
+    <!--        // // 转换为16进制-->
+    <!--        // console.log(ss);-->
+    <!--        ss = 2748;-->
+    <!--        console.log(ss.toString(16));-->
+    <!--    </script>-->
+    <!--    <script>-->
+    <!--        // // ++-->
+    <!--        //-->
+    <!--        // var a = 10;-->
+    <!--        // a++;-->
+    <!--        // // a = a + 1-->
+    <!--        // console.log(a);-->
+    <!--        // // 11-->
+    <!--        // ++a;-->
+    <!--        // // a = a + 1-->
+    <!--        // console.log(a);-->
+    <!--        // //12-->
+    <!--        // var a = 1;-->
+    <!--        // var b = a++;-->
+    <!--        // console.log(a, b);-->
+    <!--        // // 2 1-->
+    <!--        // var c = 1;-->
+    <!--        // var d = ++c;-->
+    <!--        // console.log(c, d);-->
+    <!--        // // 2 2-->
+    <!--        var e = 1;-->
+    <!--        e = e++;-->
+    <!--        console.log(e);-->
+    <!--        // 1-->
+    <!--        e = ++e;-->
+    <!--        console.log(e);-->
+    <!--        // 2-->
+    <!--    </script>-->
+    <!--    <script >-->
+    <!--        // 字符串-->
+    <!--        // var names = "Tom_Jerry_Johnny";-->
+    <!--        // console.log(names.split("_"));-->
+    <!--        //-->
+    <!--        // console.log(names.substr(4, 5));-->
+    <!--        // Jerry-->
+    <!--        // console.log(names.substring(4, 9));-->
+    <!--        // Jerry-->
+    <!--        // console.log(names.length);-->
+    <!--        // 长度为16-->
+    <!--        // console.log(names.charAt(2));-->
+    <!--        // 第二位置的字符为m-->
+    <!--        // console.log(names.charCodeAt(2));-->
+    <!--        // m的ascii/unicode码为109-->
+    <!--        // s = "aleeeeeex"-->
+    <!--        // console.log(s.indexOf("e"));-->
+    <!--        // // 从左往右第一个e的索引位置为2-->
+    <!--        // console.log(s.lastIndexOf("e"))-->
+    <!--        // // 从左往右最后一个e的索引位置为7-->
+    <!--        // var st = "callback_jsonp({'name':'alex', 'age': 18, 'address': {'IP_address'：'192.168.1.1'}})";-->
+    <!--        // result = st.substring(st.indexOf("{"), st.lastIndexOf("}")+1);-->
+    <!--        // // 从第一个"{"截取到最后一个"}"-->
+    <!--        // console.log(result);-->
+    <!--    </script>-->
 <!--    <script>-->
-<!--        // 数据类型转换-->
-<!--        // var s = "1";-->
-<!--        // console.log(s + 1);-->
-<!--        // // 11, 有一个是string，就是拼接-->
-<!--        // s = parseInt(s);-->
-<!--        // console.log(s + 1);-->
-<!--        // // 2-->
-<!--        // s = "abc";-->
-<!--        // ss = parseInt(s, 16);-->
-<!--        // // 转换为16进制-->
-<!--        // console.log(ss);-->
-<!--        ss = 2748;-->
-<!--        console.log(ss.toString(16));-->
-<!--    </script>-->
-<!--    <script>-->
-<!--        // // ++-->
-<!--        //-->
-<!--        // var a = 10;-->
-<!--        // a++;-->
-<!--        // // a = a + 1-->
-<!--        // console.log(a);-->
-<!--        // // 11-->
-<!--        // ++a;-->
-<!--        // // a = a + 1-->
-<!--        // console.log(a);-->
-<!--        // //12-->
-<!--        // var a = 1;-->
-<!--        // var b = a++;-->
-<!--        // console.log(a, b);-->
-<!--        // // 2 1-->
-<!--        // var c = 1;-->
-<!--        // var d = ++c;-->
-<!--        // console.log(c, d);-->
-<!--        // // 2 2-->
-<!--        var e = 1;-->
-<!--        e = e++;-->
-<!--        console.log(e);-->
-<!--        // 1-->
-<!--        e = ++e;-->
-<!--        console.log(e);-->
-<!--        // 2-->
-<!--    </script>-->
-    <script >
-        // 字符串
-        // var names = "Tom_Jerry_Johnny";
-        // console.log(names.split("_"));
-        //
-        // console.log(names.substr(4, 5));
-        // Jerry
-        // console.log(names.substring(4, 9));
-        // Jerry
-        // console.log(names.length);
-        // 长度为16
-        // console.log(names.charAt(2));
-        // 第二位置的字符为m
-        // console.log(names.charCodeAt(2));
-        // m的ascii/unicode码为109
-        s = "aleeeeeex"
-        console.log(s.indexOf("e"));
-        // 从左往右第一个e的索引位置为2
-        console.log(s.lastIndexOf("e"))
-        // 从左往右最后一个e的索引位置为7
-        st = "callback_jsonp({'name':'alex', 'age': 18, 'address': {'IP_address'：'192.168.1.1'}})";
+<!--        // 条件分支-->
+<!--        // 标准-->
+<!--        var a = 10;-->
+<!--        // if (a > 50) {-->
+<!--        //     console.log(123);-->
+<!--        // } else {-->
+<!--        //     console.log(456);-->
+<!--        // }-->
+<!--        // if (a > 5)-->
+<!--        //     console.log(123)-->
+<!--        // else-->
+<!--        //     console.log(456);-->
 
+<!--        // switch-->
+<!--        // switch (a) {-->
+<!--        //     case 1:-->
+<!--        //         console.log("1");-->
+<!--        //         break-->
+<!--        //         // 打断以阻止执行后续的case-->
+<!--        //     case 2:-->
+<!--        //         console.log("2");-->
+<!--        //         break-->
+<!--        //     case 10:-->
+<!--        //         console.log("10");-->
+<!--        //         // break-->
+<!--        //     case 11:-->
+<!--        //         console.log("11");-->
+<!--        //         break-->
+<!--        //     default:-->
+<!--        //         console.log("没匹配到")-->
+<!--        //         break-->
+<!--        // }-->
+
+<!--        // 根据月份判断季度-->
+<!--        var mouth =2-->
+<!--        switch (mouth){-->
+<!--            case 1:-->
+<!--            case 2:-->
+<!--            case 3:-->
+<!--                console.log("一季度");-->
+<!--                break-->
+<!--            case 4:-->
+<!--            case 5:-->
+<!--            case 6:-->
+<!--                console.log("二季度");-->
+<!--                break-->
+<!--            // 以下略-->
+<!--        }-->
+<!--    </script>-->
+    <script>
+        // while循环
+        // a = 0;
+        // while (a < 10){
+        //     console.log(a);
+        //     a++;
+        // }
+
+        a = 0;
+        do {
+            console.log(a);
+            a++;
+        } while (a < 10)
     </script>
 </head>
 <body>
