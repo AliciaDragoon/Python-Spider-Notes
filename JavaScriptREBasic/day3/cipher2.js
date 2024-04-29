@@ -9,9 +9,18 @@
 //     }
 // })()
 
-var key = "aes_key";
-window.aes = function (){
-    console.log("开始aes加密");
-    console.log(key);
+// var key = "aes_key";
+// window.aes = function (){
+//     console.log("开始aes加密");
+//     console.log(key);
+//         return "aes加密结果";
+// }
+
+(function (){
+    var key = "aes_key";
+    window.aes = function () {
+        console.log("开始aes加密");
+        console.log(key);
         return "aes加密结果";
-}
+    }
+})()
