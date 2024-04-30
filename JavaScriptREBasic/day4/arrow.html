@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数</title>
+    <script>
+        // let gn = ()=>{
+        //     console.log("我是箭头函数");
+        // }
+        // gn();
+
+        // setTimeout(()=>{
+        //     console.log("测试用例")
+        // }, 1000);
+
+        // let an = x => {
+        //     console.log(x);
+        // }
+        // an(5);
+        //
+        // let bn = (x, y, z) => {
+        //     console.log(x, y, z);
+        // }
+        // bn(5, 10, 15);
+
+        function fn(n, m){
+            m(n);
+        }
+        a = 10;
+        fn (a, n=>{
+            console.log(n);
+        });
+        // 10
+    </script>
+</head>
+<body>
+
+</body>
+</html>

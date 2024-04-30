@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象</title>
+    <script>
+        // 旧版创建一个类
+        // function Person(name, age){
+        //     // 给对象初始化值
+        //     this.name = name;
+        //     this.age = age;
+        //
+        //     // 给对象设置方法
+        //     this.eat = function (food) {
+        //         console.log(this.name + "在吃" + food);
+        //     }
+        // }
+        //
+        // let p1 = new Person("Altria", 16);
+        // p1.eat("全家桶");
+
+        // es6版
+        class Person {
+            // 构造器，类似__init__
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            // 方法
+            eat(food){
+                console.log(this.name + "在吃" + food);
+            }
+        }
+        let p1 = new Person("Altria", 16);
+        p1.eat("全家桶");
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

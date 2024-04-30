@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>初识prototype</title>
+    <script>
+        function Person(name, age){
+            // 给对象初始化值
+            this.name = name;
+            this.age = age;
+
+            // 给对象设置方法
+            this.eat = function (food) {
+                console.log(this.name + "在吃" + food);
+            }
+        }
+        // 给类添加新方法
+        Person.prototype.drink = function (drink){
+            console.log(this.name + "在喝" + drink);
+        }
+
+        let p1 = new Person("Altria", 16);
+        p1.drink("可乐");
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

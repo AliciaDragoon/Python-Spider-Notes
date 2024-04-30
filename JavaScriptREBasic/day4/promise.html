@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>promise</title>
+    <script>
+        // 发送网络请求
+        // 响应回来后加载到body中
+
+        // 模拟发送和处理请求
+        // console.log("发送请求");
+        // // 不知道什么时候会返回
+        // setTimeout(function () {
+        //     let data = "响应体";
+        //     console.log("开始处理数据: " + data);
+        // }, 3000);
+
+        // 模拟登录，展示菜单，切换到上次访问的菜单
+
+        // 死亡回调（一个任务里面套另一个任务）（es6之前的方案）
+
+        // promise(常用于不知道请求什么时候回来)
+
+        // 发送请求的函数
+        function send(url) {
+            let p = new Promise(function (resolve, reject) {
+                // 创建promise会自动运行该函数
+                // 发送请求
+                console.log("发送请求到：" + url);
+
+                setTimeout(function () {
+                    let data = "来自" + url + "的响应数据";
+                    let status = 200;
+                    // let status = 404;
+                    if (status === 200) {
+                        // 请求没问题
+                        resolve(data);
+                    } else {
+                        // 请求有问题
+                        reject(data);
+                    }
+                }, 2000);
+            });
+            return p
+        }
+
+        // 事件链
+        send("login").then(data => {
+        // resolve将data返回到then函数中
+            console.log(data);
+            return send("menu");
+        }).then(data => {
+            console.log("处理菜单");
+            return send("用户菜单")
+        }).then(data => {
+            console.log(data);
+        }).catch(function (data){
+        // reject将data返回到catch函数中
+            console.log("出错了！")
+        });
+
+
+    </script>
+</head>
+<body>
+正在加载中...
+</body>
+</html>
