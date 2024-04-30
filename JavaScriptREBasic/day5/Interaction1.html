@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>html和js的交互</title>
+    <script>
+        function fn(){
+            // console.log("无事发生")
+            // 判断语句
+            window.location.href = "https://github.com/AliciaDragoon/Python-Spider-Notes"
+        }
+    </script>
+</head>
+<body>
+<!--事件绑定-->
+<input type="button" onclick="fn()" value="这是个按钮">
+<a href="https://github.com/AliciaDragoon/Python-Spider-Notes">作者的GitHub仓库</a>
+<!--阻止链接跳转,常用于判断-->
+<a href="javascript:void(0);">一个死链接</a>
+<!--事件监听-->
+<a href="javascript:void(0);" onclick="fn()">点击后进行判断再跳转</a>
+</body>
+</html>
