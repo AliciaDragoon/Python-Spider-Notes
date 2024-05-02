@@ -2,9 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>异步加载原理</title>
 </head>
+<!--<script>-->
+<!--    // 等待按钮元素加载完毕-->
+<!--    window.onload = function (){-->
+<!--        let btn = window.document.querySelector("#btn")-->
+<!--        // console.log(btn)-->
+
+<!--        // 事件绑定-->
+<!--        // btn.onclick = function (){-->
+<!--        //     console.log("我被点了")-->
+<!--        // }-->
+
+<!--        // 添加事件监听-->
+<!--        btn.addEventListener('click', function (){-->
+<!--            console.log("我被点了")-->
+<!--        })-->
+<!--    }-->
+<!--</script>-->
+
+<script>
+    window.onload = function () {
+        // html触发js事件， js修改和处理html结构
+        let btn = document.querySelector("#btn")
+        btn.onclick = function () {
+            let input = document.querySelector("#uname")
+            input.value = "AliciaDragoon"
+        }
+    }
+</script>
+
 <body>
-    <input>
+<input type="button" id="btn" value="点击输入用户名">
+<input type="text" value="请输入用户名" name="" id="uname">
 </body>
+<!--    <script>-->
+<!--        // alert("FBI WARNING");-->
+<!--        let btn = window.document.querySelector("#btn")-->
+<!--        console.log(btn)-->
+<!--        // 按钮未加载时，返回值就为空-->
+<!--    </script>-->
 </html>

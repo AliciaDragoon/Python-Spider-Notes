@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <script src="jquery.min.js"></script>
+    <script>
+        // window.onload = function (){}
+
+        // jQuery提供的方法
+        $(function () {
+            // console.log("123")
+            // 使用jQuery的选择器选择页面结构
+            let btn = $("#btn")
+            // jQuery绑定事件
+            btn.click(function () {
+                // console.log("按钮内容")
+                let wbk = $("#uname")
+                // 设置文本框内容
+                // wbk.val("我是Alicia Dragoon")
+
+                // 获取文本框输入的内容
+                // let srnr = wbk.val()
+                // console.log(srnr)
+
+                // 获取自定义属性值
+                // let aut = wbk.attr("作者")
+                // console.log(aut)
+
+                // js动态修改元素(elements不能作为爬虫的依据)
+                // wbk.attr("作者", "author")
+            })
+        })
+    </script>
+</head>
+<body>
+<input type="button" id="btn" value="我是一个按钮">
+<input type="text" 作者="Alicia Dragoon" value="文本框" name="" id="uname">
+</body>
+</html>
