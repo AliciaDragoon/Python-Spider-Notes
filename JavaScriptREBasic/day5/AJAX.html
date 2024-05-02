@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+如果页面源代码没有想要的东西，通过抓包抓取js发送的请求，通过<br>
+请求参数<br>
+&nbsp;&nbsp;&nbsp;&nbsp;query string parameters->url<br>
+&nbsp;&nbsp;&nbsp;&nbsp;form data->requests.post(data)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;request payload->requests.post(data=json.dumps, headers={"Content-Type": "application/json",})<br>
+响应内容，找到真正需要的url<br>
+AJAX与jQuery可参考李辉老师的《Flask Web开发实战 第一版》2.5.2 使用AJAX技术发送异步请求
+</body>
+</html>
