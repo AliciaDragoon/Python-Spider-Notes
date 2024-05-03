@@ -59,6 +59,9 @@
 </head>
 <body>
 使用基于promise的axios发送ajax可以避免jQuery的死亡回调问题<br>
-<input type="button" value="我是个按钮" id="btn">
+<input type="button" value="我是个按钮" id="btn"><br>
+可在浏览器-控制台-source中搜索interceptor，有的网站会在request.js中泄露加密方法<br>
+如果request.js被打包了就要在interceptor设置断点，然后逐语句执行，寻找加密函数<br>
+设置断点后，也可以在console中输入被混淆的加密函数的名字寻找加密函数真正的位置
 </body>
 </html>
