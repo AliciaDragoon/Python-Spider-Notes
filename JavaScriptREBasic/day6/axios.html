@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>axios</title>
+    <script src="axios.min.js"></script>
+    <script>
+        // 示例代码
+
+        // 在axios拦截器中对数据进行加密
+        axios.interceptor.request.use(function (request) {
+            console.log(request)
+            // 请求对象
+            let url = request.url
+            let data = request.data
+            url += "模拟加密"
+            request.url = url
+
+            // 把请求对象向后传递
+            return request
+        }, function (error) {
+            return Promise.reject(error)
+        })
+
+        // 在axios拦截器中对数据进行解密
+        axios.interceptor.response.use(function (resp) {
+            let data = resp.data
+            // 对data解密后返回
+            return data
+        }, function (error) {
+            return Promise.reject(error)
+        })
+
+        window.onload = function () {
+            let btn = document.querySelector("#btn")
+            btn.addEventListener("click", function () {
+                // axios.get("").then(function (resp) {
+                //     console.log(resp)
+                //     // 响应对象
+                //     // 响应体，响应头，状态码
+                //     console.log(resp.data)
+                // })
+
+                // axios.post("", {Author: "Alicia Dragoon"}).then(function (resp) {
+                //     console.log(resp)
+                //     console.log(resp.data)
+                //     // 可能加密的数据
+                // })
+
+                axios.post("", {Author: "Alicia Dragoon"}).then(function (data) {
+                    console.log(data)
+                    // 已解密的数据
+                })
+            })
+        }
+
+
+    </script>
+</head>
+<body>
+使用基于promise的axios发送ajax可以避免jQuery的死亡回调问题<br>
+<input type="button" value="我是个按钮" id="btn">
+</body>
+</html>
