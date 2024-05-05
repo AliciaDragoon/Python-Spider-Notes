@@ -22,6 +22,7 @@ setuptools = "*"
 scrapy = "*"
 pillow = "*"
 scrapy-redis = "*"
+pyexecjs = "*"
 
 [dev-packages]
 
