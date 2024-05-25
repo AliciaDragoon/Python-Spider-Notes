@@ -26,6 +26,10 @@
 # session只能处理response头的cookies，js处理的cookies需要手工处理
 # 使用session.get(登录页面)加载第一个cookies
 import requests
+import base64
+import json
+from Crypto.Cipher import PKCS1_v1_5
+from Crypto.PublicKey import RSA
 
 session = requests.session()
 session.headers = {
@@ -53,5 +57,107 @@ v_code_url = "https://user.wangxiao.cn/apis//common/getImageCaptcha"
 v_code_resp = session.post(v_code_url, headers={
     "Content-Type": "application/json;charset=UTF-8"
 })
-print(v_code_resp.text)
+# print(v_code_resp.text)
 # 返回的是JSON。挨个尝试添加headers参数，直到获取json
+# print(v_code_resp.json())
+
+# 提取图片
+img_base64_data = v_code_resp.json()['data'].split(",")[1]
+
+
+# print(img_base64_data)
+# 把验证码图片保存到本地
+# with open("img_base64.jpg", "wb") as f:
+#     f.write(base64.b64decode(img_base64_data))
+
+# 使用图鉴识别验证码
+def base64_api(img):
+    data = {"username": "q6035945", "password": "q6035945", "typeid": 3, "image": img}
+    result = json.loads(requests.post("http://api.ttshitu.com/predict", json=data).text)
+    if result['success']:
+        return result["data"]["result"]
+    else:
+        return result["message"]
+
+
+v_code = base64_api(img_base64_data)
+# print(v_code)
+
+# 加密密码
+password = "q6035945"
+get_time_url = "https://user.wangxiao.cn/apis//common/getTime"
+get_time_resp = session.post(get_time_url, headers={"Content-Type": "application/json;charset=UTF-8"})
+time_data = get_time_resp.json()['data']
+cipher_password_str = password + time_data
+public_key_str = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDA5Zq6ZdH/RMSvC8WKhp5gj6Ue4Lqjo0Q2PnyGbSkTlYku0HtVzbh3S9F9oHbxeO55E8tEEQ5wj/+52VMLavcuwkDypG66N6c1z0Fo2HgxV3e0tqt1wyNtmbwg7ruIYmFM+dErIpTiLRDvOy+0vgPcBVDfSUHwUSgUtIkyC47UNQIDAQAB"
+public_key_bytes = base64.b64decode(public_key_str)
+public_key = RSA.importKey(public_key_bytes)
+cipher = PKCS1_v1_5.new(public_key)
+ciphertext = cipher.encrypt(cipher_password_str.encode('utf-8'))
+cipher_password = base64.b64encode(ciphertext).decode()
+
+login_data = {
+    "imageCaptchaCode": v_code,
+    "password": cipher_password,
+    "userName": "18614075987",
+}
+
+login_url = "https://user.wangxiao.cn/apis//login/passwordLogin"
+login_resp = session.post(login_url, data=json.dumps(login_data),
+                          headers={"Content-Type": "application/json;charset=UTF-8"})
+print(login_resp.json())
+# 登录成功
+login_info = login_resp.json()
+
+# listQuestions_url = "http://ks.wangxiao.cn/practice/listQuestions"
+# listQuestions_data = {
+#     "examPointType": "",
+#     "practiceType": "2",
+#     "questionType": "",
+#     "sign": "jz1",
+#     "subsign": "8cc80ffb9a4a5c114953",
+#     "top": "30",
+# }
+# listQuestions_resp = session.post(listQuestions_url, data=json.dumps(listQuestions_data),
+#                                   headers={"Content-Type": "application/json;charset=UTF-8"})
+# print(listQuestions_resp.text)
+# # 登录失败,session未能保持cookies
+
+# 将zdAjax(param, (res))中自动登录的参数加载到session中
+session.cookies['autoLogin'] = "true"
+session.cookies['userInfo'] = json.dumps(login_info['data'])
+session.cookies['token'] = login_info['data']['token']
+"""
+# e即login_info['data']
+$.cookie("UserCookieName", e.userName, n),
+$.cookie("OldUsername2", e.userNameCookies, n),
+$.cookie("OldUsername", e.userNameCookies, n),
+$.cookie("OldPassword", e.passwordCookies, n),
+$.cookie("UserCookieName_", e.userName, n),
+$.cookie("OldUsername2_", e.userNameCookies, n),
+$.cookie("OldUsername_", e.userNameCookies, n),
+$.cookie("OldPassword_", e.passwordCookies, n),
+$.cookie(e.userName + "_exam", e.sign, n))
+"""
+session.cookies['UserCookieName'] = login_info['data']['userName']
+session.cookies['OldUsername2'] = login_info['data']['userNameCookies']
+session.cookies['OldUsername'] = login_info['data']['userNameCookies']
+session.cookies['OldPassword'] = login_info['data']['passwordCookies']
+session.cookies['UserCookieName_'] = login_info['data']['userName']
+session.cookies['OldUsername2_'] = login_info['data']['userNameCookies']
+session.cookies['OldUsername_'] = login_info['data']['userNameCookies']
+session.cookies['OldPassword_'] = login_info['data']['passwordCookies']
+session.cookies[login_info['data']['userName'] + "_exam"] = login_info['data']['sign']
+
+listQuestions_url = "http://ks.wangxiao.cn/practice/listQuestions"
+listQuestions_data = {
+    "examPointType": "",
+    "practiceType": "2",
+    "questionType": "",
+    "sign": "jz1",
+    "subsign": "8cc80ffb9a4a5c114953",
+    "top": "30",
+}
+listQuestions_resp = session.post(listQuestions_url, data=json.dumps(listQuestions_data),
+                                  headers={"Content-Type": "application/json;charset=UTF-8"})
+print(listQuestions_resp.text)
