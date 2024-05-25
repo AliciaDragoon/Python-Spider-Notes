@@ -1,8 +1,8 @@
-data = {
-    "imageCaptchaCode": "aaaa",
-    "password": "P9grE4r7HUhLYMLiHTrVe+PU0YWndexEaiRPst+aMTI2n+ZGg9D9RcmpW6Ne8A9IxnLrzj5UHMa4vLohSmhxs4AbCgbgyzyALqLxM2KQn2zrLIJ3y/lqhduJOQsyf1zvX3vO+dKMGkYmwDAunN4ZgRset4NgON14GNXa/SE9eMw=",
-    "userName": "18053465528"
-}
+# data = {
+#     "imageCaptchaCode": "aaaa",
+#     "password": "P9grE4r7HUhLYMLiHTrVe+PU0YWndexEaiRPst+aMTI2n+ZGg9D9RcmpW6Ne8A9IxnLrzj5UHMa4vLohSmhxs4AbCgbgyzyALqLxM2KQn2zrLIJ3y/lqhduJOQsyf1zvX3vO+dKMGkYmwDAunN4ZgRset4NgON14GNXa/SE9eMw=",
+#     "userName": "18053465528"
+# }
 # 只有password被加密了
 
 # 找到password的方案
@@ -24,4 +24,34 @@ data = {
 
 # 在依次访问多个url，在最后一个url才能获取到数据的情况下，需要保持cookies
 # session只能处理response头的cookies，js处理的cookies需要手工处理
+# 使用session.get(登录页面)加载第一个cookies
+import requests
 
+session = requests.session()
+session.headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0"
+}
+login_page_url = "https://user.wangxiao.cn/login?url=https%3A%2F%2Fwww.wangxiao.cn%2F"
+session.get(login_page_url)
+# print(session.cookies)
+# <RequestsCookieJar[<Cookie sessionId=1716630623580 for user.wangxiao.cn/>]>
+
+# 获取验证码
+v_code_url = "https://user.wangxiao.cn/apis//common/getImageCaptcha"
+# v_code_resp = session.post(v_code_url)
+# print(v_code_resp.text)
+# 返回的是HTML
+
+# 给获取验证码这次请求单独添加Referer
+# v_code_resp = session.post(v_code_url, headers={
+#     "Referer": "https://user.wangxiao.cn/login?url=https%3A%2F%2Fwww.wangxiao.cn%2F"
+# })
+# print(v_code_resp.text)
+# 返回的是HTML
+
+# 给获取验证码这次请求单独添加Content-Type
+v_code_resp = session.post(v_code_url, headers={
+    "Content-Type": "application/json;charset=UTF-8"
+})
+print(v_code_resp.text)
+# 返回的是JSON。挨个尝试添加headers参数，直到获取json
