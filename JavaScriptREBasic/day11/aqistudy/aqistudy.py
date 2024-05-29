@@ -7,3 +7,7 @@ url = "https://www.aqistudy.cn/html/city_realtime.php?v=2.3"
 # 检查（// respond）函数，没有发现加密函数
 # 检查第一个（// debug detect）函数，发现它的作用是阻止你正常使用f12
 # 检查第二个（// debug detect）函数，发现txsdefwsw()在index.html中调用过，发现它的作用是无限debugger
+
+# 使用hook拦截debugger
+
+# 检查（// decode）函数,
