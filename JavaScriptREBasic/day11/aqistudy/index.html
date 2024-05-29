@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+<!--Welcome For People, Not Welcome For Machine!-->
+<!--每次访问时这里的空白行数是随机的，可以妨碍黑客打断点-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="PM2.5,PM2.5查询,空气质量,空气质量指数,AQI,PM2.5实时查询,PM2.5历史数据,PM2.5统计分析,PM2.5城市排名,PM2.5雾霾地图,空气质量地图,PM2.5数据挖掘"  />
+<meta name="description" content="中国空气质量在线监测分析平台是真气网旗下公益性质的全国空气质量发布平台，提供PM2.5及天气数据的实时查询和历史数据可视化分析，统计挖掘等，目前收录了全国367个城市的空气质量及天气信息数据，主要包括PM2.5实时查询、PM2.5历史数据及曲线查询、PM2.5时段统计分析、空气质量指数AQI历年数据分析、PM2.5中国城市排名、PM2.5中国城市分布地图、PM2.5中国省份分布地图、PM2.5全球雾霾地图、PM2.5世界雾霾地图、PM2.5城市对比、PM2.5统计排名、AQI历史数据统计分析、PM2.5与天气关联挖掘、PM2.5与经济关联挖掘等功能。"  />
+<meta name="author" content="wangjiezju@163.com">
+<meta name="baidu-site-verification" content="nDdApKwlf8" />
+<meta baidu-gxt-verify-token="a0af6fcae733b5194c7fa4a5275eb122">
+<!--允许百度爬取-->
+<link rel="shortcut icon" href="/resource/icons/logo.png">
+<title>PM2.5实时查询|PM2.5历史数据查询|PM2.5全国城市排名|PM2.5雾霾地图|中国空气质量在线监测分析平台|</title>
+<link rel="stylesheet" type="text/css" href="resource/css/easyui.css" />
+<link rel="stylesheet" type="text/css" href="resource/css/icon.css" />
+<link rel="stylesheet" type="text/css" href="resource/css/demo.css" />
+</head>
+<body class="easyui-layout" style="overflow-y: hidden" scroll="no" >
+	<!-- TOP-->
+	<div region="north" border="false"
+		style="background-image: url('resource/images/bg.png'); background-repeat: repeat-x;height: 82px; padding: 1px; overflow: hidden;">
+		<img src="resource/pic/logo3.png" width="648px" height="70px" style='margin: 12px 0 0 12px' alt="pm2.5 logo">
+		<div style="float:right;margin-top:58px">
+      <marquee direction="up" behavior="scroll" scrollamount="1" scrolldelay="0" onMouseOut="this.start()" onMouseOver="this.stop()">
+        <div style="display: none">
+          <img src="https://www.zq12369.com/resource/img/index/ad/sona.png" style="width:20px ;height:20px;margin:0;display:none">
+        <a href="https://www.zq-ai.com/#/fe/xgfybigdata" style="color:red;font-size:14px;" target="_blank">点击访问全球新冠肺炎疫情大数据分析平台<img src="https://m.zq12369.com/resource/img/new.gif" height="14px"></a>
+        </div>
+        <div style="margin-top: 8px">
+          <img src="https://www.zq12369.com/resource/img/index/ad/sona.png" style="width:20px ;height:20px;margin:0;display:none">
+        <a href="https://map.zq12369.com/" style="color:red;font-size:14px;" target="_blank">点击访问全国风场气象辅合污染地图<img src="https://m.zq12369.com/resource/img/new.gif" height="14px"></a>
+        </div>
+      </marquee>
+
+		</div>
+	</div>
+	<!-- middle-->
+	<!--类似iframe-->
+	<div id="mainPanle" region="center" style="overflow:hidden;">
+		<div id="maintabs" class="easyui-tabs" fit="true" border="false" data-options="tabPosition:'left'">
+
+		</div>
+	</div>
+
+	<!-- bottom -->
+	<div region="south" border="false" style="height: 20px; overflow: hidden;line-height:20px;">
+	    <table width="100%" style="margin-top:-4px;">
+           <tr>
+             <td valign="middle" style="color:#666">
+				   &copy; 2013-2024 <a href="#" style="color:#333">aqistudy.cn</a> 版权所有 <a href="https://beian.miit.gov.cn" style="color:#333" target="_blank">浙ICP备15007754号-1</a> <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33011802001982" style="color:#333">浙公网安备33011802001982号</a>
+			<!-- 特别鸣谢 <span class="foot"><a href="http://www.pm25.in/" title="PM25.in" target="_blank">PM25.in</a></span>  -->
+			 <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?6088e7f72f5a363447d4bafe03026db8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+            </td>
+            <td class="foot" align="right" valign="middle" >
+              <a href="https://m.zq12369.com" target="_blank">手机版</a>|
+             	<a href="/?mobile=false">网页版</a>|
+             	<a href="http://www.zq12369.com/" target="_blank" style="display: none">真气网</a>|
+             	<a href="https://map.zq12369.com" target="_blank">风场地图</a>|
+				      <a href="historydata/" target="_blank">历史数据</a>|
+				      <a href="historydata/weixin.php" target="_blank">微信平台</a>|
+				      <a href="historydata/about.php" target="_blank">关于平台</a>
+              <div style="display: none">
+                <a href="https://www.aichpoem.net" target="_blank">诗三百AI写诗</a>
+              </div>
+            </td>
+           </tr>
+	    </table>
+	</div>
+    <div id="browertip" style="color:red;position:absolute;top:2px;left:30%;z-index:2000;display:none">您的浏览器版本过旧，为了更好的使用本系统，强烈推荐您使用<a href="http://www.google.cn/intl/zh-CN/chrome/browser/" target="_blank">Chrome</a>浏览器</div>
+    <div id="browertip1" style="color:red;position:absolute;top:2px;width:100%;text-align:center;z-index:2000;display:none">由于国控点扩展到367个监测城市，本网站正在升级，部分功能已经可以正常使用，如果您使用异常，请清空浏览器缓存再试，给您带来的不便，敬请谅解！</div>
+<script type="text/javascript" src="js/jquery.min.js?v=1.1"></script>
+<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="js/tab.js?v=2.22"></script>
+<script type="text/javascript">
+
+var debugflag = false;
+
+  endebug(false, function () {
+      document.write('检测到非法调试, 请关闭调试终端后刷新本页面重试!');
+      document.write("<br/>");
+      document.write("Welcome for People, Not Welcome for Machine!");
+      debugflag = true;
+  });
+  txsdefwsw();
+  document.onkeydown = function() {
+    if ((e.ctrlKey) && (e.keyCode == 83)) {
+      alert("检测到非法调试，CTRL + S被管理员禁用");
+      return false;
+    }
+  }
+  document.onkeydown = function() {
+    var e = window.event || arguments[0];
+    if (e.keyCode == 123) {
+      alert("检测到非法调试，F12被管理员禁用");
+      return false;
+    }
+  }
+  document.oncontextmenu = function() {
+    alert('检测到非法调试，右键被管理员禁用');
+    return false;
+  }
+	$(function()
+	{
+		if (!debugflag && !window.navigator.webdriver) {
+      loadTab();
+    }
+		if(!isSupportCanvas())
+		{
+			$("#browertip").show();
+		}
+	});
+
+	function isSupportCanvas()
+	{
+	   var elem = document.createElement('canvas');
+	   return !!(elem.getContext && elem.getContext('2d'));
+	}
+	</script>
+</body>
+</html>
