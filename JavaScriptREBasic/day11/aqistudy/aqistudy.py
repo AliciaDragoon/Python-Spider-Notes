@@ -10,4 +10,6 @@ url = "https://www.aqistudy.cn/html/city_realtime.php?v=2.3"
 
 # 使用hook拦截debugger
 
-# 检查（// decode）函数,
+# 检查（// decode）函数,发现它的作用是base64转换
+# 对eval_encrypt中的eval含参函数的参数进行b64解码，获取了一个新的js文件，也就是要找的加密逻辑
+# 检查该文件，可以找到city_realtime.html中两个eval函数的加密逻辑

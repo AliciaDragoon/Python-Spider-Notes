@@ -46,8 +46,8 @@ Function.prototype._constructor = function () {
     if (arguments[0] === "debugger"){
         console.log("禁止debugger")
         return function(){}; // 拦截异常的constructor
-    } else {
+    } else{
         return Function.prototype._constructor.apply(this, arguments) // 正常的constructor不会受到影响
     }
 }
-// 该hook对于无限debugger不是一定有效
+// 该hook对于无限debugger不是一定有效(经测试，确实无效)
