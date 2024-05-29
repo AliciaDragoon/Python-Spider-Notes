@@ -4,6 +4,7 @@ from Crypto.Util.Padding import pad, unpad
 import base64
 
 """
+// 参考代码
 var AES = {
     decrypt: function (text, key, iv) {
         var secretkey = (CryptoJS.MD5(key).toString()).substr(16, 16);
