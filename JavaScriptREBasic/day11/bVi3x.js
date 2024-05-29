@@ -25,7 +25,7 @@
     function c(a, b, c) {
         setMaxDigits(131);
         var d = new RSAKeyPair(b, "", c); // d是公钥
-        var e = encryptedString(d, a);
+        var e = encryptedString(d, a); //网易云音乐在 encryptedString函数中对标准RSA算法做了修改
         return e
     }
 
@@ -46,7 +46,7 @@
         // h=>{encText:xxx}
         h.encText = b(h.encText, i); //再次调用b函数加密，内容是上次的加密内容，密钥是i，iv是0102030405060708
         // h.encSecKey = c(i, e, f); // 对密钥i进行rsa加密，密钥是e和f，然后传给服务器
-        // 可以用控制台生成一个encSecKey，或者用python计算一个
+        // 可以用控制台生成一个encSecKey（推荐），或者用python计算一个
         h.encSecKey = 'e05a268242d0b50fbac6d20041bfab53e0e163f18a4ffc9805aece65bf37adc046ef70e1e8a44de3cfd780a9204c60bc289a864fd2e1dc4c22d91a948f9f9abf15ecdd6151ec5feed1624381a7c27f49a2945dcd1d321f5507d8a6477ed83f75584c802c3e638412d26a4db4203a05c332f56d30e8a33856c3ebf927b31af933'
         return h
         // h=>{encText:xxx, encSecKey:xxx}

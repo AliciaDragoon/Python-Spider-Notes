@@ -5,6 +5,7 @@ from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 import base64
 import requests
+import binascii
 
 
 # url = '/api/song/enhance/player/url/v1'
@@ -51,7 +52,25 @@ def b(data, key):
 
 
 def c(i, e, f):
-    return 'e05a268242d0b50fbac6d20041bfab53e0e163f18a4ffc9805aece65bf37adc046ef70e1e8a44de3cfd780a9204c60bc289a864fd2e1dc4c22d91a948f9f9abf15ecdd6151ec5feed1624381a7c27f49a2945dcd1d321f5507d8a6477ed83f75584c802c3e638412d26a4db4203a05c332f56d30e8a33856c3ebf927b31af933'
+    # e = int(e, 16)
+    # f = int(f, 16)
+    # bs = i.encode("utf-8")
+    # s = binascii.b2a_hex(bs).decode()
+    # s = int(s, 16)
+    # mi = (s**e) % f
+    # # print(mi)
+    # print(format(mi, 'x'))
+    # # 网易云音乐修改了标准RSA算法的加密过程
+    e = int(e, 16)
+    f = int(f, 16)
+    i = i[::-1]
+    bs = i.encode("utf-8")
+    s = binascii.b2a_hex(bs).decode()
+    s = int(s, 16)
+    mi = (s ** e) % f
+    # print(format(mi, 'x'))
+    return format(mi, 'x')
+    # return 'e05a268242d0b50fbac6d20041bfab53e0e163f18a4ffc9805aece65bf37adc046ef70e1e8a44de3cfd780a9204c60bc289a864fd2e1dc4c22d91a948f9f9abf15ecdd6151ec5feed1624381a7c27f49a2945dcd1d321f5507d8a6477ed83f75584c802c3e638412d26a4db4203a05c332f56d30e8a33856c3ebf927b31af933'
 
 
 def asrsea(data, e, f, g):
@@ -87,19 +106,21 @@ def main():
     }
 
     resp = requests.post(url, data=dic, headers=headers)
-    # print(resp.text)
-    # 含有"url":xxx.m4a说明逆向成功
-    resp_dict = resp.json()
-    resp_list = resp_dict['data']
-    for item in resp_list:
-        # print(item.get('url'))
-        song_url = item.get('url')
-        song_id = item.get('id')
-        print(song_id, song_url)
-        with open(f"{song_id}.m4a", 'wb') as f:
-            song_resp = requests.get(song_url, headers=headers)
-            f.write(song_resp.content)
+    print(resp.text)
+    # # 含有"url":xxx.m4a说明逆向成功
+    # resp_dict = resp.json()
+    # resp_list = resp_dict['data']
+    # for item in resp_list:
+    #     # print(item.get('url'))
+    #     song_url = item.get('url')
+    #     song_id = item.get('id')
+    #     print(song_id, song_url)
+    #     with open(f"{song_id}.m4a", 'wb') as f:
+    #         song_resp = requests.get(song_url, headers=headers)
+    #         f.write(song_resp.content)
 
 
 if __name__ == '__main__':
     main()
+
+# js防护，ast，字体反爬，webpack见录播
